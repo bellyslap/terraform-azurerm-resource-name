@@ -1,6 +1,7 @@
 # AzureRM Resource Name
 
 [![MIT License](https://img.shields.io/badge/License-MIT-brightgreen)](LICENSE)
+[![Terraform Registry](https://img.shields.io/badge/Terraform-Registry-blue)](https://registry.terraform.io/modules/bellyslap/resource-name/azurerm/latest)
 
 A Terraform module designed to generate one or more names _for Azure resources_. The name quickly identifies the application/workload associated with the resource (`name`), the Azure region where the resource is hosted (`location`), the resource's type (`resource_type`), and its deployment environment (`environment`). 
 
@@ -102,8 +103,8 @@ module "vm_name" {
 }
 
 resource "azurerm_linux_virtual_machine" "example" {
-  count               = var.vm_quantity
-  name                = module.vm_name.names[count.index]
+  count = var.vm_quantity
+  name  = module.vm_name.names[count.index]
 
   ...
 
