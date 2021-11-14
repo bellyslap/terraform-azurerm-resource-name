@@ -8,6 +8,7 @@ variable "locations" {
 
 module "rg_names" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = "example"
   resource_type = "Resource Group"
   environment   = "dev"

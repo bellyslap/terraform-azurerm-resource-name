@@ -50,17 +50,15 @@ Examples:
 ```hcl
 module "rg_name" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = "example"
   resource_type = "Resource Group"
   environment   = "dev"
 }
 
-module "rg_names" {
-  source        = "bellyslap/resource-name/azurerm/"
-  name          = "example"
-  resource_type = "Resource Group"
-  environment   = "dev"
-  locations     = ["eastus2", "centralus"]
+resource "azurerm_resource_group" "example" {
+  name     = module.rg_name.name
+  location = "eastus2"
 }
 ```
 
@@ -73,6 +71,7 @@ variable "locations" {
 
 module "rg_names" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = "example"
   resource_type = "Resource Group"
   environment   = "dev"
@@ -95,6 +94,7 @@ variable "vm_quantity" {
 
 module "vm_name" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = "example"
   resource_type = "Virtual Machine"
   environment   = "dev"

@@ -20,6 +20,7 @@ variable "vm_quantity" {
 
 module "rg_name" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = var.application
   resource_type = "Resource Group"
   environment   = var.environment
@@ -33,6 +34,7 @@ resource "azurerm_resource_group" "example" {
 
 module "vnet_name" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = var.application
   resource_type = "Virtual Network"
   environment   = var.environment
@@ -48,6 +50,7 @@ resource "azurerm_virtual_network" "example" {
 
 module "snet_name" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = "internal"
   resource_type = "Subnet"
 }
@@ -61,6 +64,7 @@ resource "azurerm_subnet" "example" {
 
 module "nic_name" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = var.application
   resource_type = "Network Interface"
   environment   = var.environment
@@ -83,6 +87,7 @@ resource "azurerm_network_interface" "example" {
 
 module "vm_name" {
   source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.2-beta"
   name          = var.application
   resource_type = "Virtual Machine"
   environment   = var.environment
