@@ -1,5 +1,11 @@
+# Visual Studio Code workspace settings
+.vscode/**
+
 # Local .terraform directories
 **/.terraform/*
+
+# .terraform.lock.hcl files
+*.terraform.lock.hcl
 
 # .tfstate files
 *.tfstate
