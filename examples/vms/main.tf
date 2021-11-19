@@ -3,24 +3,28 @@ provider "azurerm" {
 }
 
 variable "application" {
-  default = "example"
+  description = "Specifies the application/workload associated with the VMs."
+  default     = "example"
 }
 
 variable "environment" {
-  default = "dev"
+  description = "Specifies the stage of the development lifecycle for the VMs."
+  default     = "dev"
 }
 
 variable "location" {
-  default = "eastus2"
+  description = "Specifies the Azure region where VMs are deployed."
+  default     = "eastus2"
 }
 
 variable "vm_quantity" {
-  default = 2
+  description = "Specifies the number of VMs."
+  default     = 2
 }
 
 module "rg_name" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.2-beta"
+  version       = "0.0.3-beta"
   name          = var.application
   resource_type = "Resource Group"
   environment   = var.environment
@@ -34,7 +38,7 @@ resource "azurerm_resource_group" "example" {
 
 module "vnet_name" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.2-beta"
+  version       = "0.0.3-beta"
   name          = var.application
   resource_type = "Virtual Network"
   environment   = var.environment
@@ -50,7 +54,7 @@ resource "azurerm_virtual_network" "example" {
 
 module "snet_name" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.2-beta"
+  version       = "0.0.3-beta"
   name          = "internal"
   resource_type = "Subnet"
 }
@@ -64,7 +68,7 @@ resource "azurerm_subnet" "example" {
 
 module "nic_name" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.2-beta"
+  version       = "0.0.3-beta"
   name          = var.application
   resource_type = "Network Interface"
   environment   = var.environment
@@ -87,7 +91,7 @@ resource "azurerm_network_interface" "example" {
 
 module "vm_name" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.2-beta"
+  version       = "0.0.3-beta"
   name          = var.application
   resource_type = "Virtual Machine"
   environment   = var.environment

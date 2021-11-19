@@ -3,12 +3,13 @@ provider "azurerm" {
 }
 
 variable "locations" {
-  default = ["eastus2", "centralus"]
+  description = "Specifies the Azure regions."
+  default     = ["eastus2", "centralus"]
 }
 
 module "rg_names" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.2-beta"
+  version       = "0.0.3-beta"
   name          = "example"
   resource_type = "Resource Group"
   environment   = "dev"
