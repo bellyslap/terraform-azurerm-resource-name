@@ -4,6 +4,11 @@ locals {
     : ""
   )
 
+  location = (var.location != null
+    ? var.location
+    : ""
+  )
+
   locations = (var.locations != null
     ? var.locations
     : []
@@ -137,6 +142,11 @@ locals {
   }
 
   separator_environment = (local.environment != ""
+    ? lookup(local.separator_override, local.resource_type, local.separator)
+    : ""
+  )
+
+  separator_location = (local.location != ""
     ? lookup(local.separator_override, local.resource_type, local.separator)
     : ""
   )

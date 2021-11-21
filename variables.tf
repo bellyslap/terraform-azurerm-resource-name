@@ -4,10 +4,16 @@ variable "environment" {
   default     = null
 }
 
+variable "location" {
+  description = "(Optional) Specifies the Azure region where the resource is deployed."
+  type        = string
+  default     = ""
+}
+
 variable "locations" {
-  description = "(Optional) Specifies one or more Azure region where the resource is deployed."
+  description = "(Optional) Specifies one or more Azure region where the resource is deployed. Defaults to `[]`."
   type        = list(string)
-  default     = null
+  default     = []
 }
 
 variable "name" {

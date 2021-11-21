@@ -9,10 +9,10 @@ output "locations" {
 }
 
 output "name" {
-  description = "The resource name for a single instance without a location."
+  description = "The resource name for a single instance."
   value = (local.quantity == 0      # single instance
     ? (length(local.locations) == 0 # no location
-      ? format("%s%s%s%s%s", var.name, local.separator_resource_type, local.resource_type, local.separator_environment, local.environment)
+      ? format("%s%s%s%s%s%s%s", var.name, local.separator_location, local.location, local.separator_resource_type, local.resource_type, local.separator_environment, local.environment)
       : null
     )
     : null

@@ -27,7 +27,9 @@ Examples:
 
 - `environment` - (Optional) Specifies the stage of the development lifecycle for the workload that the resource supports.
 
-- `locations` - (Optional) Specifies one or more Azure region where the resource is deployed.
+- `location` - (Optional) Specifies the Azure region where the resource is deployed. Defaults to `""`.
+
+- `locations` - (Optional) Specifies one or more Azure region where the resource is deployed. Defaults to `[]`.
 
 - `quantity` - (Optional) Specifies the number of resource instances.
 
@@ -39,7 +41,7 @@ Examples:
 
 - `locations` - A map of resource names incorporating the resource's location with the location as the key.
 
-- `name` - The resource name for a single instance _without a location_.
+- `name` - The resource name for a single instance.
 
 - `names` - A list of resource names for one or more instances.
 
@@ -50,7 +52,7 @@ Examples:
 ```hcl
 module "rg_name" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.3-beta"
+  version       = "0.0.4-beta"
   name          = "example"
   resource_type = "Resource Group"
   environment   = "dev"
@@ -71,7 +73,7 @@ variable "locations" {
 
 module "rg_names" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.3-beta"
+  version       = "0.0.4-beta"
   name          = "example"
   resource_type = "Resource Group"
   environment   = "dev"
@@ -94,7 +96,7 @@ variable "vm_quantity" {
 
 module "vm_name" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.3-beta"
+  version       = "0.0.4-beta"
   name          = "example"
   resource_type = "Virtual Machine"
   environment   = "dev"

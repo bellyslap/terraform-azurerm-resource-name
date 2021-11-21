@@ -7,9 +7,13 @@ provider "azurerm" {
   features {}
 }
 
+variable "location" {
+  default = "eastus2"
+}
+
 module "rg_name" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.3-beta"
+  version       = "0.0.4-beta"
   name          = "example"
   resource_type = "Resource Group"
   environment   = "dev"
@@ -17,6 +21,20 @@ module "rg_name" {
 
 resource "azurerm_resource_group" "example" {
   name     = module.rg_name.name
-  location = "eastus2"
+  location = var.location
+}
+
+module "rg_name_with_location" {
+  source        = "bellyslap/resource-name/azurerm"
+  version       = "0.0.4-beta"
+  name          = "example"
+  location      = var.location
+  resource_type = "Resource Group"
+  environment   = "dev"
+}
+
+resource "azurerm_resource_group" "example_with_location" {
+  name     = module.rg_name_with_location.name
+  location = var.location
 }
 ```

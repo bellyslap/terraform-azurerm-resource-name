@@ -9,7 +9,7 @@ provider "azurerm" {
 
 module "rg_names" {
   source        = "bellyslap/resource-name/azurerm"
-  version       = "0.0.3-beta"
+  version       = "0.0.4-beta"
   name          = "example"
   resource_type = "Resource Group"
   environment   = "dev"
